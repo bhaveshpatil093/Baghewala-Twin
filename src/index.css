@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@layer base {
+  /* Strict Industrial Control Room Rules: Zero border radius, no soft shadows, no blur, no gradients */
+  *,
+  *::before,
+  *::after {
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  :root {
+    color-scheme: dark;
+    /* Strictly Locked Palette */
+    --oil-bg-base: #14171A;        /* Near-black charcoal primary canvas */
+    --oil-bg-panel: #1F2428;       /* Dark steel grey panel surface */
+    --oil-bg-subtle: #272E34;      /* Subtle active / hover surface */
+    --oil-border-dim: #293036;     /* 1px flat structural boundary */
+    --oil-border-default: #343C44; /* Standard technical 1px border */
+    --oil-border-bright: #4A5560;  /* Highlit technical border */
+
+    /* Typography */
+    --oil-text-primary: #E8E6E1;   /* Off-white primary text */
+    --oil-text-secondary: #8A8F94; /* Mid-grey secondary text */
+    --oil-text-sand: #C9B896;      /* Muted desert sand highlight (Thar Desert) */
+
+    /* Single Interactive Accent */
+    --oil-accent-rig: #C8551D;     /* Warm rig-orange / burnt rust oxide */
+    --oil-accent-hover: #B24816;   /* Darker rig-orange hover */
+    --oil-accent-active: #9A3D11;  /* Deep rust active state */
+
+    /* Strict Reserved SCADA State Colors (NO other green/blue/purple allowed) */
+    --oil-status-normal: #3A5F45;  /* Deep safety-green (healthy only) */
+    --oil-status-normal-text: #4E9B68; /* High-contrast AA accessible green text (5.5:1) */
+    --oil-status-fault: #8C2F2F;   /* Deep warning-red (critical fault only) */
+    --oil-status-fault-text: #DE5959; /* High-contrast AA accessible red text (4.9:1) */
+    --oil-status-warning-text: #D96B27; /* High-contrast AA accessible orange text (5.8:1) */
+  }
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #14171A;
+    color: #E8E6E1;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Inter", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Accessible Focus Outlines: Strictly squared 2px accent-orange outline on all interactive elements */
+  :focus-visible,
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible,
+  [role="button"]:focus-visible,
+  [tabindex]:focus-visible {
+    outline: 2px solid #C8551D !important;
+    outline-offset: 1px !important;
+    border-radius: 0px !important;
+  }
+
+  /* Elevated muted text contrast to guarantee WCAG AA (>4.5:1) against charcoal backgrounds */
+  .text-contrast-muted {
+    color: #8A8F94 !important;
+  }
+
+  /* Technical Blueprint 1px Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #14171A;
+    border: 1px solid #293036;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #272E34;
+    border: 1px solid #343C44;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #343C44;
+  }
+
+  /* Precise Instrumentation Software: Fast, linear, sub-200ms transitions */
+  @keyframes scadaFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes scadaSlideDown {
+    from { opacity: 0; transform: translateY(-4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scadaSlideUp {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes scadaSlideLeft {
+    from { opacity: 0; transform: translateX(8px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+
+  .animate-scada-fade {
+    animation: scadaFadeIn 120ms linear forwards;
+  }
+
+  .animate-scada-slide-down {
+    animation: scadaSlideDown 120ms linear forwards;
+  }
+
+  .animate-scada-slide-up {
+    animation: scadaSlideUp 120ms linear forwards;
+  }
+
+  .animate-scada-slide-left {
+    animation: scadaSlideLeft 140ms linear forwards;
+  }
+}
+
+

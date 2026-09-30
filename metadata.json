@@ -1,0 +1,7 @@
+{
+  "name": "Baghewala Twin",
+  "description": "AI-enabled Well-to-Surface Digital Twin platform for Oil India Limited (OIL) Baghewala heavy oil field, Rajasthan. Monitors coupled CSS thermal cycles and SRP surface lift.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
